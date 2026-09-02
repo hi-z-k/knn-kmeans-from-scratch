@@ -1,4 +1,4 @@
-from dist import distance, unrooted_distance
+from distance import distance, unrooted_distance
 import hyperparameters as param
 
 if __name__ == "__main__":

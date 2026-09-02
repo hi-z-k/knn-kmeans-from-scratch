@@ -1,6 +1,8 @@
 from dataclasses import dataclass
+from typing import Optional
+
 
 @dataclass
 class Data:
     features: list[float]
-    label: str
+    label: Optional[str] = None

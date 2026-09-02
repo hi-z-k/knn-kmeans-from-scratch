@@ -1,4 +1,4 @@
-import dist
+import distance as dist
 import hyperparameters as param
 from sort import Sort
 from datatypes import Data
@@ -29,7 +29,7 @@ class KNN:
     def _sort_indices(self):
         self.indices = list(range(len(self.train_datas)))
         Sort.quick_random(nums=self.indices, transform = lambda i: self.distances[i])
-    def get_k_neighbors(self, k = param.K):
+    def get_k_neighbors(self, k = param.K_NEIGHBORS):
         if self.test_data is None or not self.indices:
             raise RuntimeError('you must provide a test data and training data')
         neighbors = []
@@ -38,7 +38,7 @@ class KNN:
             idx = self.indices[i]
             neighbors.append(self.train_datas[idx])
         return neighbors
-    def predict(self, k=param.K):
+    def predict(self, k=param.K_NEIGHBORS):
         neighbors = self.get_k_neighbors(k)
         count = {}
         most_voted, most_count = None, -1
